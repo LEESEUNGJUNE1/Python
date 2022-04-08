@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>page1.html</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.querySelector("#btnOk").onclick = function(){
+		frm.submit()
+	}
+}
+</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td><img src="/static/images/pic1.jpg" style="width: 30%" /></td>
+		<td>
+		<pre>
+		Jordan
+		Jordan 1 x Travis Scott x Fragment Retro High OG SP Military Blue
+		제품명 : 조던 1 x 트래비스 스캇 x 프라그먼트 레트로 하이 OG SP 밀리터리 블루
+		판매가 : 4,950,000원
+		할인가 : 4,850,000원
+		</pre>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<form action="cart" name="frm" method="post">{% csrf_token %}
+				<input type="hidden" name="name" value="DH3227-105"/>
+				<input type="hidden" name="price" value="4850000"/>
+				<input type="button" id="btnOk" value="장바구니에 물건 담기"/>
+				<input type="button" value="홈으로" onclick="history.back()"/>
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

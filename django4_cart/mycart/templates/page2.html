@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>page2.html</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.querySelector("#btnOk").onclick = function(){
+		frm.submit()
+	}
+}
+</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td><img src="/static/images/pic2.jpg" style="width: 30%" /></td>
+		<td>
+		<pre>
+		Jordan
+		Jordan 1 x Travis Scott Retro High OG SP Mocha
+		
+		제품명 : 조던 1 x 트래비스 스캇 레트로 하이 OG SP 모카
+		판매가 : 2,399,000원
+		할인가 : 2,340,000원
+		</pre>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<form action="cart" name="frm" method="post">{% csrf_token %}
+				<input type="hidden" name="name" value="CD4487-100"/>
+				<input type="hidden" name="price" value="2340000"/>
+				<input type="button" id="btnOk" value="장바구니에 물건 담기"/>
+				<input type="button" value="홈으로" onclick="history.back()"/>
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
