@@ -4,7 +4,6 @@ kor = 100
 
 def abc():
     print('함수라고 해')
-
 class MyClass:
     kor = 90
     
@@ -16,16 +15,15 @@ class MyClass:
         print(self.kor)
         print(kor)
         self.abc()
-        abc()
+        abc()    
 
 my = MyClass()
 my.show()
 
-print('-------')
+print('-----------------')
 class OurClass:
     a = 1
-    
-print(OurClass.a)
+print(OurClass.a) 
 
 our1 = OurClass()
 print(our1.a)

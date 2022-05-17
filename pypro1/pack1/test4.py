@@ -4,7 +4,7 @@ import re
 ss = "1234 abc가나다abcABCfun_123555_6 Python if fun"
 print(ss)
 print(re.findall('123', ss))
-aa = re.findall(r'\n123', ss)
+aa=re.findall('123', ss)
 print(aa[0])
 print(re.findall('가나', ss))
 print(re.findall('[12]', ss))

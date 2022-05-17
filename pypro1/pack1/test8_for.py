@@ -1,11 +1,11 @@
+# 반복문 for : 형식)for target in 묶음형 object: ...
 
-
-
-
+for i in [1,2,3,4,5]:
+    print(i, end = ' ')
 
 print()
 
-for _ in [1,2,3,4,5]:
+for _ in [1,2,3,4,5]:   # _ 는 값을 지정 받지 않고 숫자 만큼 반복함 
     print('반복')
 
 print()
@@ -14,32 +14,28 @@ for i in (1,2,3,4,5):
 
 print()
 for i in {1,2,3,4,5}:
-    print(i, end = ' ')
-
+    print(i, end = ' ') #set 은 순서대로 안찍힐 수도 있다.
+ 
 print()
-soft = {'java':'웹용', 'python':'만능', 'oracle':'디비'}
-for i in soft.items():
+soft = {'java':'웹용','python':'만능','oracle':'디비'}
+for i in soft.items():    
     print(i, end = ' ')
-    print(i[0], i[1])
+    print(i[0],i[1])
 
 print()
 for i in soft.keys():
     print(i, end = ' ')
-    
+
 print()
-for i in soft.values():
-    print(i, end = ' ')
-    
-print()
-for k, v in soft.items():
+for k,v in soft.items():
     print(k)
     print(v)
     
 print()
-li = ['a','b','c']
+li = ['a','b', 'c']
 for idx, data in enumerate(li):
     print(idx, ')', data)
-
+    
 print()
 for n in [2,3]:
     print('--{}단--'.format(n))
@@ -47,14 +43,14 @@ for n in [2,3]:
         print('{0}*{1}={2}'.format(n, i, i * n))
         
 print()
-datas = [1,2,3,4,5]
+datas=[1,2,3,4,5]
 for i in datas:
     if i == 2: continue
-    if i == 4: break
+    if i == 4:break
     print(i, end = ' ')
 else:
-    print('정상 종료일때 수행')
-    
+    print('정상 종료일 때 수행')
+
 print()
 jumsu = [95, 70, 60, 50, 100]
 number = 0
@@ -62,18 +58,17 @@ for jum in jumsu:
     number += 1
     if jum < 70:continue
     print('%d번은 합격'%number)
-
+    
 print()
 li1 = [3,4,5]
 li2 = [0.5,1,2]
 result = []
 for a in li1:
     for b in li2:
-        #print(a+b, end = ' ')
-        result.append(a+b)
-        
+        #print(a + b, end = ' ')
+        result.append(a + b)
 print(result)
 
 print()
-datas = [a + b for a in li1 for b in li2]
+datas = [a + b for a in li1 for b in li2]   #위에 코드와 결과는 똑같다.
 print(datas)

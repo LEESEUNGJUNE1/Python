@@ -1,39 +1,38 @@
+import time
 def inputfunc():
-    tmp = 1
+    datas=[]
+    now=time.localtime()
+    now_y=now.tm_year
     while True:
-        print('사번,이름,기본급,입사년도를 입력하세요')
-        data = list(input().split(","))
-        processfunc(data)
-        
-        yn = input('계속 하시겠습니까? y/n : ')
-        if yn == 'y':
-            tmp +=1
-            continue
-        else:
-            print('처리한 건수 : {}건'.format(tmp))
-            break
-        
+        con=input("계속하시겠습니까? : ")
+        if con=='n': return datas
+        empno,name,baseSal,hireDate=input().split(",")
+        data={}
+        empno,baseSal,hireDate=map(int,[empno,baseSal,hireDate])
+        data['사번']=empno
+        data['기본급']=baseSal
+        data['이름']=name
+        #LOS Length of service 근속년수
+        LOS=now_y-hireDate
+        data['근무년수']=LOS
+        #LSA long-service allowance 근속수당
+        if 0<=LOS<4: LSA=150000
+        elif 4<=LOS<9: LSA=450000
+        else: LSA=1000000
+        data['근속수당']=LSA
+        TotalSal=LSA+baseSal
+        #AD amount deducted 공제액
+        if TotalSal<2000000: AD=TotalSal*0.0015
+        elif TotalSal<3000000: AD=TotalSal*0.003
+        else: AD=TotalSal*0.005
+        data['공제액']=AD
+        data['수령액']=TotalSal-AD
+        datas.append(data)
+datas=inputfunc()
+def processfunc(datas):
+    datas.sort(key=lambda x:x['사번'])
+    for data in datas:
+        print(data)
+    print('처리건수 : ',len(datas),"건")
 
-def processfunc(data):
-    num,name,income,year = data
-    a = 2022 - int(year)
-    bonus = 0
-    tax= 0
-    if a>=9:
-        bonus = 1000000
-    elif a>=4:
-        bonus = 450000
-    else:
-        bonus = 150000
-               
-    total = int(income)+bonus
-    if total >= 3000000:
-        tax=0.5
-    elif total >= 2000000:
-        tax=0.3
-    else:
-        tax= 0.15
-           
-    print('{} {} {} {} {} {} {}'.format(num,name,income,a,bonus,total*tax,total-total*tax))
-
-inputfunc()
+processfunc(datas)
